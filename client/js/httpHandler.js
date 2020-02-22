@@ -6,10 +6,43 @@
   // TODO: build the swim command fetcher here
   //
 
+  // (function worker() {
+  //   $.ajax({
+  //     url: 'ajax/test.html',
+  //     success: function(data) {
+  //       $('.result').html(data);
+  //     },
+  //     complete: function() {
+  //       // Schedule the next request when the current one's complete
+  //       setTimeout(worker, 5000);
+  //     }
+  //   });
+  // })();
+const fetcher = () => {
+  $.ajax({
+    url: 'http://127.0.0.1:3000',
+    type: 'GET',
+    success: function(direction) {
+      SwimTeam.move(direction);
+    },
+
+  });
+};
+setInterval(fetcher, 3000);
+
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
   // Note: remember to fix the URL below.
   /////////////////////////////////////////////////////////////////////
+
+  // $.ajax({
+  //   url: "http://127.0.0.1:3000",
+  //   data: stuff,
+  //   success: function(response){
+  //   console.log("success");
+  //   }
+  //   });
+
 
   const ajaxFileUplaod = (file) => {
     var formData = new FormData();
@@ -17,7 +50,7 @@
     $.ajax({
       type: 'POST',
       data: formData,
-      url: 'FILL_ME_IN',
+      url: 'http://127.0.0.1:3000/',
       cache: false,
       contentType: false,
       processData: false,
