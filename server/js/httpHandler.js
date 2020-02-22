@@ -17,6 +17,10 @@ module.exports.router = (req, res, next = ()=>{}) => {
   res.writeHead(200, headers);
   // var commands = ['up', 'down', 'left', 'right']
   // var index = Math.floor(Math.random() * commands.length);
+if (req.url === './background.jpg') {
+
+};
+
   var commands = messages.dequeue()
   console.log(commands)
   if (req.method === 'GET') {

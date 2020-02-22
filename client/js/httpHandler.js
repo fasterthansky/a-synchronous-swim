@@ -30,9 +30,20 @@ const fetcher = () => {
   });
 };
 setInterval(fetcher, 5000);
-const imageUrl = ''
+// const imageUrl = ''
 
-$('.pool').css('background-image', 'url(' + imageUrl + ')');
+// $('.pool').css('background-image', 'url(' + imageUrl + ')');
+
+const fetchBackground = () => {
+  $.ajax({
+    url: 'http://127.0.0.1:3000' + '/background.jpg',
+    type: 'GET',
+    success: function() {
+      window.location = window.location.href;
+    },
+
+  });
+};
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
   // Note: remember to fix the URL below.
