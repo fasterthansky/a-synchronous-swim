@@ -23,13 +23,16 @@ const fetcher = () => {
     url: 'http://127.0.0.1:3000',
     type: 'GET',
     success: function(direction) {
+      console.log(direction)
       SwimTeam.move(direction);
     },
 
   });
 };
-setInterval(fetcher, 3000);
+setInterval(fetcher, 5000);
+const imageUrl = ''
 
+$('.pool').css('background-image', 'url(' + imageUrl + ')');
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
   // Note: remember to fix the URL below.
@@ -57,7 +60,7 @@ setInterval(fetcher, 3000);
       success: () => {
         // reload the page
         window.location = window.location.href;
-      }
+      },
     });
   };
 
@@ -67,6 +70,7 @@ setInterval(fetcher, 3000);
     var form = $('form .file')[0];
     if (form.files.length === 0) {
       console.log('No file selected!');
+
       return;
     }
 
