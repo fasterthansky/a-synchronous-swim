@@ -14,7 +14,7 @@ const fetcher = () => {
       SwimTeam.move(direction);
     },
     complete: () => {
-      //setTimeout(fetcher, 500);
+      setTimeout(fetcher, 5000);
     }
   });
 };
@@ -42,7 +42,7 @@ fetcher();
     $.ajax({
       type: 'POST',
       data: formData,
-      url: serverUrl + '/background.jpg',
+      url: 'http://127.0.0.1:3000' + '/background.jpg',
       cache: false,
       contentType: false,
       processData: false,

@@ -16,13 +16,19 @@ module.exports.router = (req, res, next = () => { }) => {
   //console.log('Serving request type ' + req.method + ' for url ' + req.url);
   // if (req.url === './background.jpg') {
   // };
+  if (req.method === 'OPTIONS') {
+    res.writeHead(200, headers);
+    res.end();
+  }
+
   var commands = messages.dequeue()
+
   if (req.method === 'GET') {
-    if (req.path === '/') {
+    if (req.url === '/') {
       res.end(commands);
       res.writeHead(200, headers);
       next();
-    } else if (req.path === './background.jpg') {
+    } else if (req.url === './background.jpg') {
       fs.readFile(module.exports.backgroundImageFile, (err, data) => {
         if (err) {
           res.writehead(404, headers)
